@@ -31,6 +31,7 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 spacing: 32,
                 mainAxisAlignment: MainAxisAlignment.start,
+                 mainAxisSize: MainAxisSize.max, 
                 children: [
                   const SizedBox(height: 100),
                   const Column(
@@ -51,7 +52,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-        
+                      
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 6,
@@ -61,7 +62,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(fontSize: 16, color: AppColors.gray),
                         textAlign: TextAlign.start,
                       ),
-        
+                      
                       TextField(
                         decoration: InputDecoration(
                           hintText: "Enter your email",
@@ -80,7 +81,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-        
+                      
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 6,
@@ -97,7 +98,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-        
+                      
                   SizedBox(
                     width: double.infinity,
                     height: 48,
@@ -122,7 +123,7 @@ class LoginPage extends StatelessWidget {
                           });
                         } else {
                           // Show validation error messages
-
+              
                           Get.bottomSheet(Container(
                             color: AppColors.backgroundBottom,
                             padding: const EdgeInsets.all(16.0),
@@ -142,7 +143,7 @@ class LoginPage extends StatelessWidget {
                               ],
                             ),
                           ));
-
+              
                         }
                       },
                       style: ElevatedButton.styleFrom(
