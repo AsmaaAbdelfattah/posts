@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BottomNavigationBar;
 import 'package:get/get.dart';
 import 'package:posts/controllers/login_model.dart';
 import 'package:posts/helpers/app_color.dart';
 import 'package:posts/helpers/app_state.dart';
-import 'package:posts/views/home_page.dart';
+import 'package:posts/views/widgets/bottom_nav_bar.dart';
 import 'package:posts/views/widgets/password_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -124,7 +124,7 @@ class LoginPage extends StatelessWidget {
                               if (success) {
                                 // Handle successful login, e.g., navigate to another page
                                 getxStorage.write('isLoggedIn', true);
-                                Get.to(const HomePage()); // Navigate to HomePage on successful login
+                                Get.to(const BottomNavigationBar()); // Navigate to HomePage on successful login
                               } else {
                                 // Handle login failure, e.g., show error message
                               Get.snackbar(

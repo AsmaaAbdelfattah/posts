@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BottomNavigationBar;
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:posts/helpers/app_state.dart';
-import 'package:posts/views/home_page.dart';
+import 'package:posts/views/widgets/bottom_nav_bar.dart';
 import 'package:posts/views/login_page.dart';
 
 Future<void> main() async {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Posts',
       debugShowCheckedModeBanner: false,
-      home: getxStorage.read('isLoggedIn') == true ? const HomePage() :  LoginPage(),
+      home: getxStorage.read('isLoggedIn') == true ? const BottomNavigationBar() :  LoginPage(),
     );
   }
 }
