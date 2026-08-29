@@ -14,9 +14,18 @@ class _PasswordWidgetState extends State<PasswordWidget> {
   var _obscureText = true;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       obscureText: _obscureText,
       onChanged: widget.onChanged,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your password';
+        }
+        if (value.length < 6) {
+          return 'Password must be at least 6 characters long';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: "Enter your password",
         filled: true,
