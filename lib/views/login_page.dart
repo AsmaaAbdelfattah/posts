@@ -5,9 +5,9 @@ import 'package:posts/helpers/app_color.dart';
 import 'package:posts/views/home_page.dart';
 import 'package:posts/views/widgets/password_widget.dart';
 
-GlobalKey<FormState> formKey = GlobalKey<FormState>();
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+   LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,7 @@ class LoginPage extends StatelessWidget {
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
               child: Form(
+                key: formKey,
                 child: Column(
                   spacing: 32,
                   mainAxisAlignment: MainAxisAlignment.start,

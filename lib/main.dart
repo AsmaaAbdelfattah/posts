@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:posts/views/home_page.dart';
 import 'package:posts/views/login_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Posts',
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home:  HomePage(),
     );
   }
 }
