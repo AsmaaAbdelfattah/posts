@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:posts/helpers/app_state.dart';
 import 'package:posts/views/home_page.dart';
 import 'package:posts/views/login_page.dart';
 
-void main() {
+Future<void> main() async {
+  await GetStorage.init(); // Initialize GetStorage before running the app
   runApp(const MyApp());
 }
 
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Posts',
       debugShowCheckedModeBanner: false,
-      home:  HomePage(),
+      home: getxStorage.read('isLoggedIn') == true ? const HomePage() :  LoginPage(),
     );
   }
 }
