@@ -14,6 +14,8 @@ class LoginPage extends StatelessWidget {
       body: GetBuilder<LoginModel>(
         init: LoginModel(),
         builder: (loginModel) => Container(
+          width: double.infinity,
+          height: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -25,15 +27,15 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
               child: Column(
                 spacing: 32,
                 mainAxisAlignment: MainAxisAlignment.start,
-                 mainAxisSize: MainAxisSize.max, 
+                 crossAxisAlignment: CrossAxisAlignment.stretch, 
                 children: [
-                  const SizedBox(height: 100),
+                  SizedBox(height: 50),
                   const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -58,14 +60,14 @@ class LoginPage extends StatelessWidget {
                     spacing: 6,
                     children: [
                       const Text(
-                        "Email",
+                        "Username",
                         style: TextStyle(fontSize: 16, color: AppColors.gray),
                         textAlign: TextAlign.start,
                       ),
                       
                       TextField(
                         decoration: InputDecoration(
-                          hintText: "Enter your email",
+                          hintText: "Enter your username",
                           filled: true,
                           fillColor: AppColors.inputBackground,
                           border: OutlineInputBorder(
@@ -104,8 +106,8 @@ class LoginPage extends StatelessWidget {
                     height: 48,
                     child: ElevatedButton(
                       onPressed: () {
-                        //MARK: - Validate email and password before calling login
-                        if (loginModel.validateEmail() && loginModel.validatePassword()){
+                        //MARK: - Validate username and password before calling login
+                        if (loginModel.validateUsername() && loginModel.validatePassword()){
                           loginModel.login().then((success) {
                             if (success) {
                               // Handle successful login, e.g., navigate to another page
@@ -130,9 +132,9 @@ class LoginPage extends StatelessWidget {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                if (!loginModel.validateEmail())
+                                if (!loginModel.validateUsername())
                                   const Text(
-                                    'Please enter a valid email address.',
+                                    'Please enter a valid username.',
                                     style: TextStyle(color: Colors.redAccent),
                                   ),
                                 if (!loginModel.validatePassword())
